@@ -1,12 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Net;
-using System.IO;
 using WatiN.Core;
-using SHDocVw;
 
 namespace PrimerEjercicio
 {
@@ -33,7 +26,6 @@ namespace PrimerEjercicio
                 result = "";
                 foreach(String elem in substrings)
                     result += elem;
-
                 return Int32.Parse(result);              
             }
             catch (Exception)

@@ -7,9 +7,17 @@ namespace PrimerEjercicio
         [STAThread]
         static void Main(string[] args)
         {
-            iSearchEngine engine = new GoogleEngine();
-            int result = engine.queryString(".NET");
-            Console.WriteLine(result);
+            String query = ".NET";
+
+            iSearchEngineBuilder engineBuilder = new SearchEngineBuilder();
+            String[] availableEngines = engineBuilder.getAvailableEngines();
+
+            foreach (String item in availableEngines)
+            {
+                iSearchEngine engine = engineBuilder.getEngine(item);
+                int result = engine.queryString(query);
+                Console.WriteLine(result);
+            }
             Console.ReadLine();
         }
     }
