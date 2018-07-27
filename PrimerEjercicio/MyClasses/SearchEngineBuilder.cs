@@ -8,7 +8,7 @@ namespace PrimerEjercicio
 {
     class SearchEngineBuilder : iSearchEngineBuilder
     {
-        private String[] availableEngines = new String[] {"GOOGLE"};
+        private String[] availableEngines = new String[] {"GOOGLE", "YAHOO"};
         public string[] getAvailableEngines()
         {
             return this.availableEngines;
@@ -21,6 +21,9 @@ namespace PrimerEjercicio
             {
                 case "GOOGLE":
                     engine = new GoogleEngine();
+                    return engine;
+                case "YAHOO":
+                    engine = new YahooEngine();
                     return engine;
                 default:
                     engine = null;

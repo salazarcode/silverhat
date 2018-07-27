@@ -1,23 +1,51 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace PrimerEjercicio
 {
+
     class Program
     {
         [STAThread]
-        static void Main(string[] args)
+        static void Main(string[] langs)
         {
-            String query = ".NET";
-
             iSearchEngineBuilder engineBuilder = new SearchEngineBuilder();
-            String[] availableEngines = engineBuilder.getAvailableEngines();
+            var data = new List<SearchResult>() {};
 
-            foreach (String item in availableEngines)
+            //Cycle for getting the general query results
+            foreach (var lang in langs)
             {
-                iSearchEngine engine = engineBuilder.getEngine(item);
-                int result = engine.queryString(query);
-                Console.WriteLine(result);
+                //First I find all the results for this word with all available engines
+                var escalars = new List<EngineResult>(){};
+                foreach (var engineName in engineBuilder.getAvailableEngines())
+                {
+                    iSearchEngine engine = engineBuilder.getEngine(engineName);
+                    escalars.Add(new EngineResult
+                    {
+                        engine = engineName,
+                        result = engine.queryString(lang)
+                    });
+                }
+
+                //And finally I put together the results and the word
+                data.Add(new SearchResult
+                {
+                    word = lang,
+                    res = escalars
+                });
             }
+
+
+
+            //Results printing
+            foreach (var item in data)
+            {
+                Console.Write(item.word + ": ");
+                foreach (var elem in item.res)
+                    Console.Write(elem.engine +": " + elem.result + " ");
+                Console.WriteLine();
+            }
+
             Console.ReadLine();
         }
     }
