@@ -7,6 +7,7 @@ namespace PrimerEjercicio
 
     class Program
     {
+        [STAThread]
         static void Main(string[] langs)
         {
             iSearchEngineBuilder engineBuilder = new SearchEngineBuilder();
