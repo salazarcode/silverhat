@@ -23,7 +23,7 @@ namespace PrimerEjercicio
                     iSearchEngine engine = engineBuilder.getEngine((AvailableEngines)engineInt);
                     escalars.Add(new EngineResult
                     {
-                        engine = ((AvailableEngines)engineInt).ToString(),
+                        engine = (AvailableEngines)engineInt,
                         result = engine.queryString(lang)
                     });
                 }
@@ -37,7 +37,8 @@ namespace PrimerEjercicio
                 });
             }
 
-
+            engineBuilder = null;
+            engineBuilder = null;
 
             //Results printing
             foreach (var item in data)
@@ -48,6 +49,25 @@ namespace PrimerEjercicio
                 Console.WriteLine();
             }
 
+            List<ResumeWord> listOfWinners = new List<ResumeWord>();
+            foreach (var engineInt in Enum.GetValues(typeof(AvailableEngines)))
+            {
+                String engine = ((AvailableEngines)engineInt).ToString();
+                ResumeWord results = ResultsProcessing.getSearchEngineWinner((AvailableEngines)engineInt, data);
+                listOfWinners.Add(results);
+                Console.WriteLine(engine + " winner: "+ results.word);
+            }
+
+            ResumeWord totalWinner = listOfWinners[0];
+            foreach (ResumeWord item in listOfWinners)
+            {
+                if (item.res > totalWinner.res)
+                {
+                    totalWinner.word = item.word;
+                    totalWinner.res = item.res;
+                }
+            }
+            Console.WriteLine("Total winner: " + totalWinner.word);
             Console.ReadLine();
         }
     }

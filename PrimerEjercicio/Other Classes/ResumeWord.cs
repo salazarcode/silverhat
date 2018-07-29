@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace PrimerEjercicio.MyClasses
+namespace PrimerEjercicio.Other_Classes
 {
     class ResumeWord
     {

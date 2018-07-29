@@ -1,5 +1,6 @@
 ﻿using System;
 using WatiN.Core;
+using PrimerEjercicio.Other_Classes;
 
 namespace PrimerEjercicio
 {
@@ -17,11 +18,9 @@ namespace PrimerEjercicio
         public int queryString(string query)
         {
             WatiN.Core.Settings.Instance.MakeNewIeInstanceVisible = false;
-
             String[] substrings, numberSubStrings;
             String number, finalStringResult;
             int parsedResult;
-
             try
             {
                 IE ie = new IE("https://ve.search.yahoo.com/search?p=" + query);

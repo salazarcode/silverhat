@@ -4,16 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PrimerEjercicio.MyClasses
+namespace PrimerEjercicio.Other_Classes
 {
     class ResultsProcessing
     {
-        static ResumeWord getSearchEngineWinner(String engine, List<SearchResult> data)
+        public static ResumeWord getSearchEngineWinner(AvailableEngines engine, List<SearchResult> data)
         {
             List<ResumeWord> resume = new List<ResumeWord>();
             foreach (SearchResult item in data)
             {
-                EngineResult target = item.res.Find(x => x.engine == engine);
+                EngineResult target = item.res.Find(x => x.engine.ToString() == engine.ToString());
                 resume.Add(new ResumeWord {
                     word = item.word,
                     res = target.result
