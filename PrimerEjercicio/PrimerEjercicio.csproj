@@ -53,15 +53,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MyClasses\EngineResult.cs" />
-    <Compile Include="MyClasses\YahooEngine.cs" />
-    <Compile Include="MyClasses\GoogleEngine.cs" />
-    <Compile Include="MyInterfaces\iSearchEngine.cs" />
-    <Compile Include="MyInterfaces\iSearchEngineBuilder.cs" />
+    <Compile Include="Other Classes\EngineResult.cs" />
+    <Compile Include="Other Classes\ResultsProcessing.cs" />
+    <Compile Include="Other Classes\ResumeWord.cs" />
+    <Compile Include="SearchEngines and builder\YahooEngine.cs" />
+    <Compile Include="SearchEngines and builder\GoogleEngine.cs" />
+    <Compile Include="My Interfaces\iSearchEngine.cs" />
+    <Compile Include="My Interfaces\iSearchEngineBuilder.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="MyClasses\SearchEngineBuilder.cs" />
-    <Compile Include="MyClasses\SearchResult.cs" />
+    <Compile Include="SearchEngines and builder\SearchEngineBuilder.cs" />
+    <Compile Include="Other Classes\SearchResult.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

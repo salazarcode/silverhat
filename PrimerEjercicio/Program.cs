@@ -6,7 +6,6 @@ namespace PrimerEjercicio
 
     class Program
     {
-        [STAThread]
         static void Main(string[] langs)
         {
             iSearchEngineBuilder engineBuilder = new SearchEngineBuilder();
@@ -15,9 +14,9 @@ namespace PrimerEjercicio
             //Cycle for getting the general query results
             foreach (var lang in langs)
             {
-                //First I find all the results for this word with all available engines
+                //First, I find all the results for this word with all available engines
                 var escalars = new List<EngineResult>(){};
-                foreach (var engineName in engineBuilder.getAvailableEngines())
+                foreach (var engineName in SearchEngineBuilder.availableEngines)
                 {
                     iSearchEngine engine = engineBuilder.getEngine(engineName);
                     escalars.Add(new EngineResult
@@ -26,6 +25,7 @@ namespace PrimerEjercicio
                         result = engine.queryString(lang)
                     });
                 }
+
 
                 //And finally I put together the results and the word
                 data.Add(new SearchResult

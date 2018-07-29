@@ -8,15 +8,10 @@ namespace PrimerEjercicio
 {
     class SearchEngineBuilder : iSearchEngineBuilder
     {
-        private String[] availableEngines = new String[] {
+        public static  String[] availableEngines = new String[] {
             "GOOGLE",
             "YAHOO"
         };
-
-        public string[] getAvailableEngines()
-        {
-            return this.availableEngines;
-        }
 
         public iSearchEngine getEngine(string name)
         {
