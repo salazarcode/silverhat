@@ -1,5 +1,6 @@
 ﻿using System;
 using PrimerEjercicio.Other_Classes;
+using Newtonsoft.Json;
 
 namespace PrimerEjercicio
 {
@@ -28,9 +29,9 @@ namespace PrimerEjercicio
 
             strJSON = rClient.makeRequest();
 
-            Console.Write(strJSON);
-
-            return 48;
+            var objectResult = JsonConvert.DeserializeObject<dynamic>(strJSON);
+            
+            return objectResult.searchInformation.totalResults;
         }
     }
 }
