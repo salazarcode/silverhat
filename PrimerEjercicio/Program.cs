@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using PrimerEjercicio.Other_Classes;
 
 namespace PrimerEjercicio
 {
@@ -9,19 +10,19 @@ namespace PrimerEjercicio
         static void Main(string[] langs)
         {
             iSearchEngineBuilder engineBuilder = new SearchEngineBuilder();
-            var data = new List<SearchResult>() {};
+            var data = new List<SearchResult>();
 
             //Cycle for getting the general query results
             foreach (var lang in langs)
             {
                 //First, I find all the results for this word with all available engines
-                var escalars = new List<EngineResult>(){};
-                foreach (var engineName in SearchEngineBuilder.availableEngines)
+                var escalars = new List<EngineResult>();
+                foreach (var engineInt in Enum.GetValues(typeof(AvailableEngines)))
                 {
-                    iSearchEngine engine = engineBuilder.getEngine(engineName);
+                    iSearchEngine engine = engineBuilder.getEngine((AvailableEngines)engineInt);
                     escalars.Add(new EngineResult
                     {
-                        engine = engineName,
+                        engine = ((AvailableEngines)engineInt).ToString(),
                         result = engine.queryString(lang)
                     });
                 }

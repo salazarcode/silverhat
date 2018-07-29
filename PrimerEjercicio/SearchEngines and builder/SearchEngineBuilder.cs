@@ -3,25 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using PrimerEjercicio.Other_Classes;
 
 namespace PrimerEjercicio
 {
     class SearchEngineBuilder : iSearchEngineBuilder
     {
-        public static  String[] availableEngines = new String[] {
-            "GOOGLE",
-            "YAHOO"
-        };
-
-        public iSearchEngine getEngine(string name)
+        public iSearchEngine getEngine(AvailableEngines ae)
         {
             iSearchEngine engine;
-            switch (name)
+            switch (ae)
             {
-                case "GOOGLE":
+                case AvailableEngines.GOOGLE:
                     engine = GoogleEngine.Instance;
                     return engine;
-                case "YAHOO":
+                case AvailableEngines.YAHOO:
                     engine = YahooEngine.Instance;
                     return engine;
                 default:

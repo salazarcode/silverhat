@@ -53,7 +53,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Other Classes\AvailableEngines.cs" />
     <Compile Include="Other Classes\EngineResult.cs" />
+    <Compile Include="Other Classes\RestClient.cs" />
     <Compile Include="Other Classes\ResultsProcessing.cs" />
     <Compile Include="Other Classes\ResumeWord.cs" />
     <Compile Include="SearchEngines and builder\YahooEngine.cs" />
